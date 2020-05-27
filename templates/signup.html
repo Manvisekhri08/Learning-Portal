@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> Learning Portal</title>
+  <head>
+    <link href="../static/css/style.css"  rel="stylesheet">
+  </head>
+    <body>
+      <header>
+        <div class="nav">
+          <img src="../static/name.JPG" style="width: 150px; height:50px;">
+        <a style=" margin-top:3px;margin-bottom:3px;" href="{{url_for('index')}}">Home</a> 
+        </div>
+      </header>
+
+      <div class="container" style="height: 90%; background-color:lightblue; ">
+        <h1 style=" color:black"><img src="../static/register.JPG"></h1>
+        <div class="email"> {{text | safe}} </div>
+        <form action="{{url_for('home1')}}" method="POST">
+          <input style="border-radius:5px ;" title="Your email will be safe with us" placeholder="Enter Your Name" type="text" name="full_name" required> <br>
+          <input style="border-radius:5px ;" title="Your email will be safe with us" placeholder="Enter email address" type="email" name="email_name" required> <br>
+          <input style="border-radius:5px ;" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter password" 
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", type="password" minlength="10", name="pass" required> <br>
+          <input  style="border-radius:5px ;" type="tel"  placeholder="Enter Phone Number" name="phone_no"  required><br>
+          <input  style="border-radius:5px ;" type="number" placeholder="Enter your Age" min="12" max="55" name="age"  required><br>
+
+          <button class="btn" type="submit" style="width:100px; height:50px; border-radius: 5px; background-color:rgba(46, 42, 42, 0.801);color:white"><b>RESGISTER</b> </button>
+          <p style="color:black; font-size: 16px; font-family:cursive; font-style: italic;">Already have an account ?<a  href="{{ url_for('index')}}" style="text-decoration: none;  color: blue; "> Click here to Signin!</a></p>
+        </form>
+      </div>
+     
+      
+    </body>
+</html>

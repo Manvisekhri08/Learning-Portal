@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> Learning Portal</title>
+  <head>
+   
+    <link href="../static/css/style.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+    <body>
+      <header>
+        <div class="nav">
+          <img src="../static/name.JPG" style="width: 150px; height:50px;">
+        <a style=" margin-top:3px;margin-bottom:3px;background-color:lightblue; " href="{{url_for('index')}}">Home</a> 
+        </div>
+      </header>
+      <div class="container" style="height: 90%;background-color:lightblue;">
+        <h1><img src="../static/login.JPG"></h1>
+        <h3 style="color: black; font-family:cursive; font-style: italic;">Login to get started with your learning.</h3>
+        <div class="email"> {{text | safe}} </div>
+        <form action="{{url_for('home')}}" method="POST">
+          <input  style="border-radius:5px ;" title="Your email will be safe with us" placeholder="Enter Your email address" type="email" name="email_id" required> <br>
+          <input  style="border-radius:5px ;" title="Your email will be safe with us" placeholder="Enter your password" type="password" name="pswd" required> <br>
+
+          <button class="btn" type="submit" style="width:100px; height:50px; border-radius: 5px; background-color:rgba(46, 42, 42, 0.801);color:white"> LOGIN </button><br>
+          <p style="color:black; font-size: 16px; font-family:cursive; font-style: italic;">Doesn't have an account ?<a  href="{{ url_for('signup')}}" style="text-decoration: none;  color: blue; "> Click here to Signup!</a></p>
+        </form>
+      
+      </div>
+     
+    </body>
+</html>
