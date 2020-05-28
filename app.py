@@ -44,6 +44,14 @@ def signup():
 
 
 
+@app.route('/homepage/')
+def homepage():
+    return render_template("front.html")
+
+@app.route('/quiz/')
+def quiz():
+    return render_template("quiz.html")    
+
 
 @app.route("/front", methods=['GET','POST'])
 def home1():
