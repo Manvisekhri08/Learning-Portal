@@ -1,3 +1,8 @@
+{% extends "public/templates/public_template2.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +13,11 @@ div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
 <script>
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
 var questions = [
-    [ "What is 10 + 4?", "12", "14", "16", "B" ],
-	[ "What is 20 - 9?", "7", "13", "11", "C" ],
-	[ "What is 7 x 3?", "21", "24", "25", "A" ],
-	[ "What is 5 - 1?", "1", "4", "3", "B" ],
-	[ "What is 8 / 2?", "10", "2", "4", "C" ]
+    [ "To print a float value which format specifier can be used?", "%f", "%lf", "%Lf", "A" ],
+	[ "Which header file supports the functions - malloc() and calloc()?", "stdlib.h", "memory.h", "math.h", "A" ],
+	[ "Choose the function that is most appropriate for reading in a multi-word string?", "gets()", "scanf()", "strchr()", "A" ],
+	[ "Identify the C compiler of UNIX.", "gcc", "cc", "vc++", "B" ],
+	[ "What is sizeof() in C?", "Operator", "Function", "Macro", "A" ]
 ];
 function _(x){
 	return document.getElementById(x);
@@ -53,8 +58,9 @@ function checkAnswer(){
 window.addEventListener("load", renderQuestion, false);
 </script>
 </head>
-<body style="background-color: lightcyan;">
+<body style="background-color: lightyellow;">
 <h2 id="test_status"></h2>
 <div id="test"></div>
 </body>
 </html>
+{% endblock %}
