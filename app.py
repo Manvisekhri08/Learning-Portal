@@ -50,7 +50,15 @@ def homepage():
 
 @app.route('/quiz/')
 def quiz():
-    return render_template("quiz.html")    
+    return render_template("quiz.html")
+
+@app.route('/quiz1/')
+def quiz1():
+    return render_template("quiz1.html") 
+
+@app.route('/quiz2/')
+def quiz2():
+    return render_template("quiz2.html")            
 
 
 @app.route("/front", methods=['GET','POST'])
