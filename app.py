@@ -58,7 +58,11 @@ def quiz1():
 
 @app.route('/quiz2/')
 def quiz2():
-    return render_template("quiz2.html")            
+    return render_template("quiz2.html")
+
+@app.route('/quiz3/')
+def quiz3():
+    return render_template("quiz3.html")                
 
 
 @app.route("/front", methods=['GET','POST'])
