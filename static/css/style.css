@@ -68,7 +68,9 @@ margin-top:3px;
 margin-bottom:3px;
 }
 
-
+.nav .fa{
+  margin-right: 8px;
+}
 
 .copywrite
 {
