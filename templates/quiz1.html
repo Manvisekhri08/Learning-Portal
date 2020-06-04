@@ -1,68 +1,56 @@
-{% extends "public/templates/public_template2.html" %}
-
-{% block title %}Home{% endblock %}
-
-{% block main %}
-
-
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<style>
-div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
-</style>
-<script>
-var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
-var questions = [
-    [ "What is the average of first five multiples of 12?", "36", "38", "40", "A" ],
-	[ "What is the difference in the place value of 5 in the numeral 754853?", "49500", "49950", "45000", "B" ],
-	[ "What is the compound interest on Rs. 2500 for 2 years at rate of interest 4% per annum?", "Rs. 180", "Rs. 204", "Rs. 210", "B" ],
-	[ "If January 1, 1996, was Monday, what day of the week was January 1, 1997?", "Thursday", "Wednesday", "Friday", "B" ],
-	[ "How many times the hands of a clock coincide in a day?", "24", "22", "23", "B" ]
-];
-function _(x){
-	return document.getElementById(x);
-}
-function renderQuestion(){
-	test = _("test");
-	if(pos >= questions.length){
-		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
-		_("test_status").innerHTML = "Test Completed";
-		pos = 0;
-		correct = 0;
-		return false;
-	}
-	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
-	question = questions[pos][0];
-	chA = questions[pos][1];
-	chB = questions[pos][2];
-	chC = questions[pos][3];
-	test.innerHTML = "<h3>"+question+"</h3>";
-	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
-	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
-	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
-	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
-}
-function checkAnswer(){
-	choices = document.getElementsByName("choices");
-	for(var i=0; i<choices.length; i++){
-		if(choices[i].checked){
-			choice = choices[i].value;
-		}
-	}
-	if(choice == questions[pos][4]){
-		correct++;
-	}
-	pos++;
-	renderQuestion();
-}
-window.addEventListener("load", renderQuestion, false);
-</script>
-</head>
-<body style="background-color: lightpink;">
-<h2 id="test_status"></h2>
-<div id="test"></div>
-</body>
+    <head>
+        <title>Quiz</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+       <div class="quiz-home-box custom-box show">
+           <h4>You'll have 10 seconds to answer each questions</h4>
+          <!-- <button type="button" class="start-quiz-btn btn">Start the quiz</button>-->
+          <h1>Select Category</h1>
+          <div class="category-box">
+          </div>
+       </div>
+
+       <div class="quiz-box custom-box">
+           <h1 class="category-text"></h1>
+            <div class="stats">
+                <div class="quiz-time">
+                    <div class="remaining-time"></div>
+                    <span class="time-up-text">Time's Up</span>
+                </div>
+                <div class="score-board">
+                    <span class="score-text">Score:</span>
+                    <span class="correct-answers"></span>
+                </div>
+            </div>
+            <div class="question-box">
+                <div class="current-question-num"></div>
+                <div class="question-text"></div>
+            </div>
+            <div class="option-box">
+    
+            </div>
+            <div class="answer-description">
+                
+            </div>
+            <div class="next-question">
+                <button type="button" class="next-question-btn btn">Next Question</button>
+                <button type="button" class="see-result-btn btn">See Your Result</button>
+            </div>
+       </div>
+       <div class="quiz-over-box custom-box">
+        <h1>Quiz Result</h1>
+        <h4>Total Question : <span class="total-questions"></span></h4>
+        <h4>Attempt : <span class="total-attempt"></span></h4>
+        <h4>Correct : <span class="total-correct"></span></h4>
+        <h4>Wrong : <span class="total-wrong"></span></h4>
+        <h4>Percentage : <span class="percentage"></span></h4>
+        <button type="button" class="start-again-quiz-btn btn">Start Again</button>
+        <button type="button" class="go-home-btn btn">Go To Home</button>
+       </div>
+       <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    </body>
 </html>
-{% endblock %}
