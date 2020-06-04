@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <title> Learning Portal</title>
+    <head>
+      <link href="../static/css/main.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link href="../static/css/main.css" rel="stylesheet" >
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+      <body >
+          <header>
+              <div class="nav" style="overflow: hidden;">
+                 
+                <img src="../static/name.JPG" style="width: 150px; height:50px;">
+                 <a style=" margin-top:3px;margin-bottom:3px;margin-left:55%;color:black;text-decoration: none; " href="{{url_for('homepage')}}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                 <a style=" margin-top:3px;margin-bottom:3px;background-color:lightblue;color:black;text-decoration: none; " href=#Content><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Content</a> 
+                 <a style=" margin-top:3px;margin-bottom:3px;" href="{{url_for('contactus')}}"><i class="fa fa-phone fa-fw"></i>ContactUs</a> 
+
+                 <a href="{{url_for('index')}} " style="margin-top:3px;margin-bottom:3px;color:black;text-decoration: none;"><i class="fa fa-sign-out fa-fw"></i>Logout</a> 
+              </div>
+            </header>
+           
+    <br><br><br>
+  <h3 style="margin-left:25%;"><b>Here are some notes you can download and refer to :</b></h3>
+  <h5 style="margin-left:35%;">If you want to upload something, <a href="{{url_for('uploadfile')}}">Click here!</a></h5>
+  <br>  
+  <div class="container">
+      <div id="accordion" style="width:700px; margin-left: 20%;">
+        <div class="card">
+          <div class="card-header">
+            <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseOne">
+              Software Engineering &bigtriangledown;
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <a href="/get-pdf/Black.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Black Box Testing</a><br>
+              <a href="/get-pdf/Agile.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Agile Development</a><br>
+              <a href="/get-pdf/COCOMO.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">COCOMO Model</a><br>
+              <a href="/get-pdf/Design.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Design Engineering</a><br>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <br><br>
+        <div class="container">
+      <div id="accordion"style="width:700px; margin-left: 20%;">
+        <div class="card">
+          <div class="card-header">
+            <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseFour">
+              DBMS &bigtriangledown;
+            </a>
+          </div>
+          <div id="collapseFour" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <a href="/get-pdf/dbms.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Introduction to DBMS</a><br>
+              <a href="/get-pdf/normalisation.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Normalisation</a><br>
+              <a href="/get-pdf/Transaction.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Transaction</a><br>
+              <a href="/get-pdf/concurrency.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Concurrency Control</a><br>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="container">
+      <div id="accordion"style="width:700px; margin-left: 20%;">
+        <div class="card">
+          <div class="card-header">
+            <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseFour">
+              Computer System Architecture &bigtriangledown;
+            </a>
+          </div>
+          <div id="collapseFour" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <a href="/get-pdf/DMA.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Direct Memory Access(DMA)</a><br>
+              <a href="/get-pdf/Solution.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">General Register Organisation</a><br>
+              <a href="/get-pdf/csa.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Pipelining</a><br>
+              <a href="/get-pdf/ST3.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Program Control</a><br>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+    <div class="container">
+      <div id="accordion"style="width:700px; margin-left: 20%;">
+        <div class="card">
+          <div class="card-header">
+            <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseFour">
+              ADBMS &bigtriangledown;
+            </a>
+          </div>
+          <div id="collapseFour" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <a href="/get-pdf/adbms.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">XML Schema</a><br>
+              <a href="/get-pdf/adbms(1).pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Query Processing</a><br>
+              <a href="/get-pdf/adbmsniki.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Data Warehouse</a><br>
+              <a href="/get-pdf/adbmsst.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Data Mining</a><br>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    
+    <div class="container">
+      <div id="accordion" style="width:700px; margin-left: 20%;">
+        <div class="card">
+          <div class="card-header">
+            <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseSeven">
+              Operating System &bigtriangledown;
+            </a>
+          </div>
+          <div id="collapseSeven" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <a href="/get-pdf/DMA.pdf" data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Scheduling</a><br>
+              <a href="/get-pdf/Solution.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Threads</a><br>
+              <a href="/get-pdf/csa.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style= "font-size: large;">Memory Management</a><br>
+              <a href="/get-pdf/ST3.pdf"  data-toggle="tooltip" data-placement="top" title="Click here to download" style=" font-size: large;">Virtualization</a><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <section style="background-color: lightgrey; height:100px;">
+      <br><br>
+<!-- Button trigger modal -->
+<p style="font-weight: bold; font-style: italic;margin-left:30%;"> Help us improve! Click here to provide us with feedback.&nbsp;
+<button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModal">
+Click here.
+</button></p>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     <!--form-->
+     <form>
+       Name
+      <input class="form-control" type="text" placeholder="Enter your Name"><br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      Component Name
+      <input class="form-control" type="text" placeholder="Study Material" readonly><br>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Rate this component out of 5!</label>
+        <select class="form-control" id="exampleFormControlSelect1" required>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Write your feedback here!</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </form>
+    <!--form-->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+</html>
