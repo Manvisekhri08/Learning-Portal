@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> Learning Portal</title>
+  <head>
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="../static/css/main.css" rel="stylesheet" >
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  function ButtonClicked()
+{
+  alert("your video is being downloaded please wait");
+   document.getElementById("formsubmitbutton").style.display = "none"; // to undisplay
+   document.getElementById("buttonreplacement").style.display = ""; // to display
+   return true;
+}
+var FirstLoading = true;
+function RestoreSubmitButton()
+{
+   if( FirstLoading )
+   {
+      FirstLoading = false;
+      return;
+   }
+   document.getElementById("formsubmitbutton").style.display = ""; // to display
+   document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
+}
+</script>  
+</head>
+    <body >
+        <header>
+            <div class="nav" style="overflow: hidden;">
+               
+              <img src="../static/name.JPG" style="width: 150px; height:50px;">
+               <a style=" margin-top:3px;margin-bottom:3px;margin-left:55%;color:black;text-decoration: none; " href="{{url_for('homepage')}}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+               <a style=" margin-top:3px;margin-bottom:3px;background-color:lightblue;color:black;text-decoration: none; " href=#Content><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Content</a> 
+               <a style=" margin-top:3px;margin-bottom:3px;" href="{{url_for('contactus')}}"><i class="fa fa-phone fa-fw"></i>ContactUs</a> 
+
+               <a href="{{url_for('index')}} " style="margin-top:3px;margin-bottom:3px;color:black;text-decoration: none;"><i class="fa fa-sign-out fa-fw"></i>Logout</a> 
+            </div>
+          </header>
+    
+        
+         <br><br><br>
+      <div class="container">
+        <h1><img  src="../static/videohead3.JPG"></h1><br>
+        <div class="email"> {{text1 | safe}} </div>
+     <form action="{{url_for('success')}}" method="POST">
+      <input style="border-radius:5px ;" placeholder="Enter Url" type="url" name="url_video" required> <br>
+      <input style="border-radius:5px ;" placeholder="Enter Your Drive For eg:- D:/" type="text" name="path_name" pattern="[A-Z]?:/" required> <br>
+      <br>
+      <div id="formsubmitbutton">
+        <input type="submit" name="submitter" style="text-align:center;width:150px;height:60px;" value="Download" class="btn btn-primary" onclick="ButtonClicked()">
+        </div>
+        <div id="buttonreplacement" style="margin-left:30px; display:none;">
+        <img src="//www.willmaster.com/images/preload.gif" alt="loading...">
+        </div>
+    </div>
+</form>
+    </div>
+    </div>
+    
+    <br><br><br>
+  
+    <section style="background-color: lightgrey; height:100px;">
+      <br><br>
+<!-- Button trigger modal -->
+<p style="font-weight: bold; font-style: italic;margin-left:30%;"> Help us improve! Click here to provide us with feedback.&nbsp;
+<button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModal">
+Click here.
+</button></p>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     <!--form-->
+     <form>
+       Name
+      <input class="form-control" type="text" placeholder="Enter your Name"><br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      Component Name
+      <input class="form-control" type="text" placeholder="Video Downloader" readonly><br>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Rate this component out of 5!</label>
+        <select class="form-control" id="exampleFormControlSelect1" required>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Write your feedback here!</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </form>
+    <!--form-->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+    
+
+     </body>
+      
+      </html>
