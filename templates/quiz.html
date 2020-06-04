@@ -1,66 +1,298 @@
-{% extends "public/templates/public_template2.html" %}
-
-{% block title %}Home{% endblock %}
-
-{% block main %}
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<style>
-div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
-</style>
-<script>
-var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
-var questions = [
-    [ "To print a float value which format specifier can be used?", "%f", "%lf", "%Lf", "A" ],
-	[ "Which header file supports the functions - malloc() and calloc()?", "stdlib.h", "memory.h", "math.h", "A" ],
-	[ "Choose the function that is most appropriate for reading in a multi-word string?", "gets()", "scanf()", "strchr()", "A" ],
-	[ "Identify the C compiler of UNIX.", "gcc", "cc", "vc++", "B" ],
-	[ "What is sizeof() in C?", "Operator", "Function", "Macro", "A" ]
-];
-function _(x){
-	return document.getElementById(x);
-}
-function renderQuestion(){
-	test = _("test");
-	if(pos >= questions.length){
-		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
-		_("test_status").innerHTML = "Test Completed";
-		pos = 0;
-		correct = 0;
-		return false;
-	}
-	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
-	question = questions[pos][0];
-	chA = questions[pos][1];
-	chB = questions[pos][2];
-	chC = questions[pos][3];
-	test.innerHTML = "<h3>"+question+"</h3>";
-	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
-	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
-	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
-	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
-}
-function checkAnswer(){
-	choices = document.getElementsByName("choices");
-	for(var i=0; i<choices.length; i++){
-		if(choices[i].checked){
-			choice = choices[i].value;
-		}
-	}
-	if(choice == questions[pos][4]){
-		correct++;
-	}
-	pos++;
-	renderQuestion();
-}
-window.addEventListener("load", renderQuestion, false);
-</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../static/css/main.css" rel="stylesheet" > 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body style="background-color: lightyellow;">
-<h2 id="test_status"></h2>
-<div id="test"></div>
+<body>
+  <header>
+    <div class="nav" style="overflow: hidden;">
+       
+      <img src="../static/name.JPG" style="width: 150px; height:50px;">
+       <a style=" margin-top:3px;margin-bottom:3px;margin-left:55%;color:black;text-decoration: none; " href="{{url_for('homepage')}}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+       <a style=" margin-top:3px;margin-bottom:3px;background-color:lightblue;color:black;text-decoration: none; " href=#Content><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Content</a> 
+       <a style=" margin-top:3px;margin-bottom:3px;" href="{{url_for('contactus')}}"><i class="fa fa-phone fa-fw"></i>ContactUs</a> 
+
+       <a href="{{url_for('index')}} " style="margin-top:3px;margin-bottom:3px;color:black;text-decoration: none;"><i class="fa fa-sign-out fa-fw"></i>Logout</a> 
+    </div>
+  </header>
+
+      <br><br><br>
+
+<h3 style="text-align: center;font-style: italic;">Programming</h3>
+<div class="container">
+  <div id="accordion" style="width:700px; margin-left: 20%;">
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseOne">
+          C &bigtriangledown;
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        C++ &bigtriangledown;
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          JAVA &bigtriangledown;
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<h3 style="text-align: center;font-style: italic;">Numerical Ability</h3>
+    <div class="container">
+  <div id="accordion"style="width:700px; margin-left: 20%;">
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseFour">
+          Quantitative Aptitude &bigtriangledown;
+        </a>
+      </div>
+      <div id="collapseFour" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href="/quiz" style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a  style="font-size: larger; font-weight: bold;"  class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
+          Logical Ability &bigtriangledown;
+      </a>
+      </div>
+      <div id="collapseFive" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="collapsed card-link" data-toggle="collapse" href="#collapseSix">
+          English &bigtriangledown;
+        </a>
+      </div>
+      <div id="collapseSix" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<h3 style="text-align: center;font-style: italic;">Technical</h3>
+<div class="container">
+  <div id="accordion" style="width:700px; margin-left: 20%;">
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="card-link" data-toggle="collapse" href="#collapseSeven">
+          Software Engineering &bigtriangledown;
+        </a>
+      </div>
+      <div id="collapseSeven" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="collapsed card-link" data-toggle="collapse" href="#collapseEight">
+        Operating System &bigtriangledown;
+      </a>
+      </div>
+      <div id="collapseEight" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a style="font-size: larger; font-weight: bold;" class="collapsed card-link" data-toggle="collapse" href="#collapseNine">
+          ADBMS &bigtriangledown;
+        </a>
+      </div>
+      <div id="collapseNine" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <p style="color:black">Basic Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">Intermediate Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+          <br>
+          <p style="color:black">High Level Quiz</p>
+          <a href=# style= "font-size: large;">Quiz 1</a><br>
+          <a href=# style=" font-size: large;">Quiz 2</a><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<section style="background-color: lightgrey; height:100px;">
+  <br><br>
+<!-- Button trigger modal -->
+<p style="font-weight: bold; font-style: italic;margin-left:30%;"> Help us improve! Click here to provide us with feedback.&nbsp;
+<button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModal">
+Click here.
+</button></p>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+ <!--form-->
+ <form>
+   Name
+  <input class="form-control" type="text" placeholder="Enter your Name"><br>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  Component Name
+  <input class="form-control" type="text" placeholder="Quizes" readonly><br>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Rate this component out of 5!</label>
+    <select class="form-control" id="exampleFormControlSelect1" required>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Write your feedback here!</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+<!--form-->
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Submit</button>
+</div>
+</div>
+</div>
+</div>
+</section>
 </body>
 </html>
-{% endblock %}
