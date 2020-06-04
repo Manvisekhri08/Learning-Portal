@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request,redirect,jsonify,make_response
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from send_email import send_email
 from sqlalchemy.sql import func
 from werkzeug.utils import secure_filename
 from pytube import YouTube
-import random, copy
+from flask import render_template,redirect,request,jsonify,make_response
 import os
+import json
+from difflib import get_close_matches
+
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:manvi@1011@localhost/collector'
@@ -36,7 +39,9 @@ def index():
     return render_template("index.html")
 
 
-
+@app.route('/contact-us/')
+def contactus():
+    return render_template("contactus.html")
 
 @app.route('/signup/')
 def signup():
@@ -44,29 +49,38 @@ def signup():
 
 
 
-@app.route('/homepage/')
+@app.route('/home-page/')
 def homepage():
     return render_template("front.html")
 
-@app.route('/quiz/')
-def quiz():
+
+@app.route('/video-download/')
+def videodown():
+    return render_template("youtubeDown.html")
+
+
+@app.route('/upload-file/')
+def uploadfile():
+    return render_template("uploadfile.html")
+
+
+@app.route('/download-file/')
+def downloadfile():
+    return render_template("downloadfiles.html")
+
+
+
+@app.route('/quizes/')
+def quizes():
     return render_template("quiz.html")
 
-@app.route('/quiz1/')
-def quiz1():
-    return render_template("quiz1.html") 
-
-@app.route('/quiz2/')
-def quiz2():
-    return render_template("quiz2.html")
-
-@app.route('/quiz3/')
-def quiz3():
-    return render_template("quiz3.html")                
+@app.route('/quiz/')
+def quiz():
+    return render_template("quiz1.html")    
 
 
-@app.route("/front", methods=['GET','POST'])
-def home1():
+@app.route("/login", methods=['POST'])
+def register():
     if request.method=='POST':
         fullname=request.form["full_name"]
         email=request.form["email_name"]
@@ -92,8 +106,8 @@ def home1():
             return render_template("index.html")
     return render_template('signup.html', text="Seems like we got something from that email once!")
 
-@app.route("/home", methods=['GET','POST'])
-def home():
+@app.route("/home", methods=['POST'])
+def login():
     if request.method=='POST':
         email_id=request.form["email_id"]
         pass_word=request.form["pswd"]
@@ -103,7 +117,7 @@ def home():
                 return render_template("front.html")
     return render_template('index.html', text="Seems like you don't have an account for this email ! <br>or check your Email id or Password")
 
-@app.route("/success", methods=['GET','POST'])
+@app.route("/success", methods=['POST'])
 def success():
     if request.method=='POST':
         url_name=request.form["url_video"]
@@ -116,13 +130,10 @@ def success():
             dw.download(path)
             return render_template("success.html")
         except:
-            return render_template("front.html",text1="Video can't be downloaded!Please see if the url or path entered is correct and try again.")
+            return render_template("youtubeDown.html",text1="Video can't be downloaded!Please see if the url or path entered is correct and try again.")
 
-@app.route("/files")
-def files():
-    return render_template("files.html")
 
-app.config["IMAGE_UPLOADS"]="C:/Users/manvi/Web/static/img/Uploads" 
+app.config["IMAGE_UPLOADS"]="C:/Users/manvi/Web1/static/img/Uploads" 
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "PDF", "DOC", "DOCX", "MP4", "MP3"]
 
 def allowed_image(filename):
@@ -165,15 +176,13 @@ def upload_image():
             print("File saved")
 
             return redirect(request.url)
-
-
-    return render_template("upload_image.html")
+    return render_template("uploadfile.html")
 
 from flask import send_file, send_from_directory, safe_join, abort
 
-app.config["CLIENT_IMAGES"] = "C:/Users/manvi/Web/static/client/img"
-app.config["CLIENT_CSV"] = "C:/Users/manvi/Web/static/client/csv"
-app.config["CLIENT_PDF"] = "C:/Users/manvi/Web/static/clients/pdf"
+app.config["CLIENT_IMAGES"] = "C:/Users/manvi/Web1/static/client/img"
+app.config["CLIENT_CSV"] = "C:/Users/manvi/Web1/static/client/csv"
+app.config["CLIENT_PDF"] = "C:/Users/manvi/Web1/static/client/pdf"
 
 @app.route("/get-image/<image_name>")
 def get_image(image_name):
@@ -200,14 +209,10 @@ def get_pdf(filename):
     try:
         return send_from_directory(app.config["CLIENT_PDF"], filename=filename, as_attachment=True)
     except FileNotFoundError:
-        abort(404)               
+        abort(404)          
 
-@app.route("/References")
-def References():
-    return render_template("References.html")
 
-    
 
 if __name__ == '__main__':
     app.debug=True
-    app.run()
+    app.run(port=5005)
