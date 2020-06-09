@@ -74,10 +74,25 @@ def downloadfile():
 def quizes():
     return render_template("quiz.html")
 
-@app.route('/quiz/')
-def quiz():
-    return render_template("quiz1.html")    
+@app.route("/quiz1")
+def q1():
+    return render_template("quiz1.html")
 
+@app.route("/quiz-NumericalAbility")
+def q2():
+    return render_template("quizNa.html")
+
+@app.route("/quiz-VerbalAbility")
+def q3():
+    return render_template("quizVerbal.html")
+
+@app.route("/quiz-LogicalAbility")
+def q4():
+    return render_template("quizlogic.html")
+
+@app.route("/projects")
+def proj():
+    return render_template("project.html")
 
 @app.route("/login", methods=['POST'])
 def register():
@@ -158,7 +173,7 @@ def upload_image():
 
         if request.files:
 
-            image = request.files["image"]
+            image = request.files["filename"]
 
             if image.filename == "":
                 print("No filename")
@@ -177,6 +192,34 @@ def upload_image():
 
             return redirect(request.url)
     return render_template("uploadfile.html")
+
+
+@app.route("/projects", methods=["GET", "POST"])
+def project():
+
+    if request.method == "POST":
+
+        if request.files:
+
+            image = request.files["filename"]
+
+            if image.filename == "":
+                print("No filename")
+                return redirect(request.url)
+
+            if not allowed_image(image.filename):
+                print("That file extension is not allowed")
+                return redirect(request.url)    
+
+            else:
+                filename = secure_filename(image.filename)
+
+                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+
+            print("File saved")
+
+            return redirect(request.url)
+    return render_template("project.html")
 
 from flask import send_file, send_from_directory, safe_join, abort
 
