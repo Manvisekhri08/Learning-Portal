@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet"  href="style.css">
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="style3.css">
+</head>
+<body>
+<header>
+	<div id="Home">
+<ul>
+</ul>
+</div>
+<div class="main">
+<div class="logo">
+<img src="logo.png">
+	<ul>
+  <li class="active"><a href="#Home" class="active">Home</a></li>
+  <li><a href="#Repository">Repository</a></li>
+  <li><a href="#Testimonial">Testimonial</a></li>
+  <li><a href="#Contact">Contact</a></li>
+</ul>
+</div>
+</header>
+
+<div class="web1">
+<div id="Repository">
+<div class="main">
+	<ul>
+  <li ><a href="#Home" class="active">Home</a></li>
+  <li class="active"><a href="#Repository">Repository</a></li>
+  <li><a href="#Testimonial">Testimonial</a></li>
+  <li><a href="#Contact">Contact</a></li>
+</ul>
+<br>
+<div class="wrapper">
+<div class="table1">
+<h1>Badminton</h1>
+<div class="info">
+<div class="log">
+<h2><img src="bad.jpg"></h2>
+</div>
+</div>
+<div class="about">
+<h4>Badminton is officially the fastest of all racket sports. 
+Players can hit the shuttlecock at speeds of up to 180mph 
+toward their opponent.
+A player can expect to run up to four miles.Each side may only strike 
+	the shuttlecock once before it passes over the net.  
+</h4>
+</div>
+</div>
+<div class="table1">
+<h1>Table Tennis</h1>
+<div class="info">
+<div class="log">
+<h2><img src="tennis.jpg"></h2>
+</div>
+</div>
+<div class="about">
+<h4>Table tennis is a sport in which two or four players hit a lightweight ball back
+	and forth across a table using small rackets. The game takes place on a hard 
+	table divided by a net.Players must allow a ball played toward them to bounce one time 
+	on their side of the table. </h4>
+</div>
+</div>
+<div class="table1">
+<h1>Football</h1>
+<div class="info">
+<div class="log">
+<h2><img src="football.jpg"></h2>
+</div>
+</div>
+<div class="about">
+<h4>Football is one of the most popular sports in the world. 
+The game consists of two teams of 11 players. One of the players is 
+considered a goalkeeper and that player's objective is not to 
+allow the ball to go into the goal.The various forms of football are
+	known as football codes.
+</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="web1">
+<div id="Testimonial">
+<div class="main">
+	<ul>
+  <li ><a href="#Home" class="active">Home</a></li>
+  <li ><a href="#Repository">Repository</a></li>
+  <li class="active"><a href="#Testimonial">Testimonial</a></li>
+  <li><a href="#Contact">Contact</a></li>
+</ul>
+<br>
+
+	<table border="0" cellspacing="60">
+ 	<tr>
+	<td>
+	<div class="test">
+	<img class="p" src="table1.jpg" width="200" height="200">
+	<div class="test1">
+	  "<b>John</b> is the founder of Academy of Coach Training. He is the author of five books,
+		a speaker, and one of the lead trainers for the 2.0 Coach Training Program. 
+		His leading passion is Academic Life Coaching and changing the way we educate young people.
+		He maintains his own Academic Life Coaching practice of about 15 students and works directly
+		with schools to train teachers and staff member." <br>
+	</div>
+	</div>
+	</td>
+	<td>
+	<div class="test">
+	<img class="p" src="table2.jpg" width="200" height="200">
+	<div class="test1" >
+	  "<b>Carol</b> is a professionally certified coach and mentor specializing in transforming lives
+		through the discovery of your unique personality bent and the unique path that you will take.
+		Carol is Founder and Owner of Puzzle2Purpose, a coaching, mentoring, and training organization 
+		that works with individuals, teens and groups in the areas of communication, work styles and discovering
+		what makes you UNIQUE."<br>
+	</div>
+	</div>
+	</td>
+	
+	<td>
+	<div class="test" >
+	<img class="p" src="table3.jpg" width="200" height="200">
+	<div class="test1">
+	  "<b>Bill</b> says that Coaching is a process that enables learning and development to occur and thus
+		performance to improve. To be a successful a Coach requires a knowledge and understanding of process
+		as well as the variety of styles, skills and techniques that are appropriate to the context in which 
+		the coaching takes place."</div>
+	</div>
+	</td>
+	
+	
+	<td>
+	<div class="test">
+	<img class="p"  src="table4.jpg" width="200" height="200">
+	<div class="test1">
+	   "<b>Christine</b>  is a scientific coach, trainer, speaker and facilitator, with more than 20 years'
+		experience as innovation and change manager in healthcare.She supported more than 1000 individuals
+		and teams and served as a mentor, board member, career and motivational coach for Universities,
+		MBA schools and local and global associations.<br>
+	</div>
+	</div>
+	</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+<div class="web1">
+<div id="Contact">
+<div class="main">
+	<ul>
+  <li ><a href="#Home" class="active">Home</a></li>
+  <li ><a href="#Repository">Repository</a></li>
+  <li ><a href="#Testimonial">Testimonial</a></li>
+  <li class="active"><a href="#Contact">Contact</a></li>
+</ul>
+<br>
+<br>
+
+       <div class="w">
+ 
+<div class="contact1">
+<h1></h1>
+<div class="imga">
+<div class="att">
+<a href="mailto:fitster@gmail.com">
+<img src="mail.jpg">
+</a>
+</div>
+</div>
+<div class="in">
+<h4><br>Click Icon to Mail.<br></h4>
+</div>
+</div>
+<div class="contact1">
+<h1></h1>
+<div class="imga">
+<div class="att">
+<h2><img src="contact.png"></h2>
+</div>
+</div>
+<div class="in">
+<h4><br>Contact at   :    +91902345786</h4>
+</div>
+</div>
+<div >
+<h1>   </h1>
+<div >
+<div >
+<form id="form1" runat="server">  
+    <div>                
+    </div>   
+    <h2 class="head" align="left">Feel free to contact us:</h2>  
+    <table id="table1"; cellspacing="5px" cellpadding="5%"; align="center">  
+
+       <tr>  
+               
+              <td><input type="text" name="First Name" placeholder=" Enter your Name" id="textbox"/></td>  
+       </tr>  
+
+       <tr>  
+               
+              <td><input type"email"  id="textbox" name="email" placeholder=" Enter your Email" size="20" required/></td>  
+       </tr>  
+       <tr>  
+              
+              <td><textarea rows="8" cols="20" name="Description" placeholder=" Message" id="textbox" ></textarea>  
+        </td>  
+       </tr>         
+        <tr><td>  
+        <input type="submit" value="  SUBMIT  " class="btn" id="textbox"/>
+        </td>  
+        </tr>  
+</table>   
+    </form>
+</div>
+</div>
+<br><br><br><br>
+	<div class="ft">
+	<table border="0">
+	<col width="330">
+	<col width="330">
+	<col width="330">
+	<col width="330">
+	<tr>
+	<th><font color="white">SOCIAL:</font></th>
+	<td>
+	<a href="https://www.instagram.com/"><img src="insta.jpg" width="60" height="60"></a>
+	</td>
+         <td>
+	<a href="https://www.linkedin.com/"><img src="linkedin.png" width="60" height="60"></a>
+	</td>
+	<td>
+	<a href="https://www.twitter.com/"><img src="twitter.png" width="60" height="60"></a>
+	</td>
+	<td>
+	<a href="https://www.facebook.com/"><img src="fb.png" width="60" height="60"></a>
+	</td>
+	
+</table>
+</div>
+</div>	
+</div>
+</body>
+</html>
