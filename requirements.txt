@@ -75,12 +75,12 @@ pylint-flask==0.6
 pylint-flask-sqlalchemy==0.2.0
 pylint-plugin-utils==0.6
 pyparsing==2.4.7
+pypiwin32==223
 pyrsistent==0.16.0
 python-dateutil==2.8.1
 pytube==9.6.0
 pytube3==9.6.4
 pytz==2020.1
-pywin32==227
 pywinpty==0.5.7
 pyzmq==19.0.0
 qtconsole==4.7.3
