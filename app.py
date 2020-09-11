@@ -258,4 +258,4 @@ def get_pdf(filename):
 
 if __name__ == '__main__':
     app.debug=True
-    app.run(port=5005)
+    app.run()
